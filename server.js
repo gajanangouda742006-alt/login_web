@@ -42,7 +42,6 @@ app.post("/upload", upload.single("photo"), (req, res) => {
         file: `/uploads/${req.file.filename}`
     });
 });
-=======
 app.use("/api", authRoutes);
 app.post("/api/upload", upload.single("photo"), require("./controllers/photoController").uploadPhoto);
 app.use("/api", photoRoutes);
