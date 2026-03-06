@@ -2,7 +2,7 @@ const db = require("../config/db");
 
 exports.uploadPhoto = (req,res)=>{
 
-const sql="INSERT INTO photos(user_id,filename,filepath) VALUES(?,?,?)";
+const sql = "INSERT INTO photos (user_id,filename,filepath) VALUES (?,?,?)";
 
 db.query(sql,
 [
