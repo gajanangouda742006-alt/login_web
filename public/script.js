@@ -1,55 +1,50 @@
-function register(){
+async function register(){
 
-let name=document.getElementById("name").value;
+const name = document.getElementById("name").value;
+const email = document.getElementById("email").value;
+const password = document.getElementById("password").value;
 
-if(name==""){
-alert("Enter your name");
-return;
-}
-
-alert("Registration Successful");
-
-window.location="upload.html";
-}
-
-async function uploadImage(){
-
-const fileInput=document.getElementById("fileInput");
-
-if(fileInput.files.length===0){
-alert("Select image first");
-return;
-}
-
-const formData=new FormData();
-formData.append("photo",fileInput.files[0]);
-
-await fetch("/upload",{
+const response = await fetch("/api/register",{
 method:"POST",
-body:formData
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify({
+username:name,
+email:email,
+password:password
+})
 });
 
-alert("Image Uploaded");
+const result = await response.text();
 
-loadImages();
+alert(result);
+
+// go to upload page
+window.location.href = "upload.html";
+
 }
 
 async function loadImages(){
 
-const res=await fetch("/images");
-const images=await res.json();
+const response = await fetch("/images");
 
-const gallery=document.getElementById("gallery");
+const images = await response.json();
 
-if(!gallery) return;
+const gallery = document.getElementById("gallery");
 
 gallery.innerHTML="";
 
 images.forEach(img=>{
-let image=document.createElement("img");
-image.src=img;
+
+const image = document.createElement("img");
+
+image.src = img;
+
 gallery.appendChild(image);
+
 });
+
 }
 
-loadImages();
+window.onload = loadImages;
