@@ -32,7 +32,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-<<<<<<< HEAD
+
 app.post("/upload", upload.single("photo"), (req, res) => {
     if (!req.file) {
         return res.status(400).json({ message: "No file uploaded" });
@@ -45,7 +45,7 @@ app.post("/upload", upload.single("photo"), (req, res) => {
 app.use("/api", authRoutes);
 app.post("/api/upload", upload.single("photo"), require("./controllers/photoController").uploadPhoto);
 app.use("/api", photoRoutes);
->>>>>>> 068511f9b96cd319cb2b800262979fb952934748
+
 
 app.get("/images", (req, res) => {
     fs.readdir("./uploads", (err, files) => {

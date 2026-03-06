@@ -25,26 +25,50 @@ window.location.href = "upload.html";
 
 }
 
+
+async function uploadImage(){
+
+const fileInput=document.getElementById("fileInput");
+
+const formData=new FormData();
+
+formData.append("photo",fileInput.files[0]);
+formData.append("userId",localStorage.getItem("userId") || 1);
+
+await fetch("/api/upload",{
+method:"POST",
+body:formData
+});
+
+alert("Uploaded");
+
+}
+
 async function loadImages(){
 
-const response = await fetch("/images");
+const userId = localStorage.getItem("userId") || 1;
 
-const images = await response.json();
+const res = await fetch("/api/photos/"+userId);
+
+const photos = await res.json();
 
 const gallery = document.getElementById("gallery");
 
+if(!gallery) return;
+
 gallery.innerHTML="";
 
-images.forEach(img=>{
+photos.forEach(photo=>{
 
-const image = document.createElement("img");
+const img=document.createElement("img");
 
-image.src = img;
+img.src=photo.filepath;
+img.style.width="200px";
 
-gallery.appendChild(image);
+gallery.appendChild(img);
 
 });
 
 }
 
-window.onload = loadImages;
+window.onload=loadImages;
