@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Cinzel:wght@400..900&family=Courgette&family=Londrina+Shadow&family=Momo+Trust+Display&family=Pacifico&family=Rubik+80s+Fade&family=Rubik+Wet+Paint&family=Zen+Tokyo+Zoo&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h2>Photo Gallery</h2>
+        <a href="index.html"><button>Back to Registration</button></a>
+        <div class="gallery" id="gallery"></div>
+    </div>
+    <script>
+        async function loadImages(){
+            const gallery = document.getElementById("gallery");
+            if(!gallery) return;
+            const res = await fetch("/images");
+            const images = await res.json();
+            gallery.innerHTML = "";
+            images.forEach(img => {
+                let image = document.createElement("img");
+                image.src = img;
+                gallery.appendChild(image);
+            });
+        }
+        loadImages();
+    </script>
+</body>
+</html>

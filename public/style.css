@@ -1,53 +1,112 @@
 body{
-font-family:Arial;
-margin:0;
-background:linear-gradient(135deg,#6a11cb,#2575fc);
-min-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: linear-gradient(135deg, #6a11cb, #33fc25);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h2{
+    font-family: "Rubik Wet Paint", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 30px;
+    color: #6a11cb;
+}
+
+.name{
+    color: aqua;
 }
 
 .container{
-background:white;
-padding:40px;
-border-radius:15px;
-width:350px;
-text-align:center;
-box-shadow:0 10px 20px rgba(0,0,0,0.3);
+    background: rgb(15, 213, 231);
+    padding: 40px;
+    border-radius: 15px;
+    width: 350px;
+    text-align: center;
+    color: black;
+    border: 2px solid #ff00ff;
+    box-shadow:
+        0 0 10px #ff00ff,
+        0 0 20px #00ffff,
+        0 0 40px #ff00ff;
+    animation: glow 2s infinite alternate;
 }
 
-input,select{
-width:100%;
-padding:10px;
-margin:8px 0;
-border-radius:8px;
-border:1px solid #ccc;
+@keyframes glow{
+    from{
+        box-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff;
+    }
+    to{
+        box-shadow: 0 0 30px #ff00ff, 0 0 40px #00ffff;
+    }
+}
+
+input, select{
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 8px;
+    border: 1px solid #bc1919;
 }
 
 button{
-padding:10px 20px;
-border:none;
-background:#ff4b2b;
-color:white;
-border-radius:8px;
-cursor:pointer;
-margin-top:10px;
+    padding: 10px 20px;
+    border: 1px solid black;
+    background: linear-gradient(#ff4b2b, rgb(145, 11, 172));
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.3s;
 }
 
 button:hover{
-background:#ff416c;
+    background: linear-gradient(#ff4b2b, rgb(145, 11, 172));
+    box-shadow: 0 0 15px #2575fc;
+    transform: scale(1.1);
 }
 
 .gallery{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
 }
 
 .gallery img{
-width:200px;
-margin:10px;
-border-radius:10px;
-box-shadow:0 0 10px rgba(0,0,0,0.2);
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    transition: 0.3s;
+}
+
+.gallery img:hover{
+    transform: scale(1.05);
+}
+
+.password-box{
+    position: relative;
+    width: 100%;
+}
+
+.password-box input{
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.eye-icon{
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #000000;
+    font-size: 22px;
 }

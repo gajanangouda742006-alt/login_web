@@ -1,34 +1,23 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-<title>Upload Photo</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Photo</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Cinzel:wght@400..900&family=Courgette&family=Londrina+Shadow&family=Momo+Trust+Display&family=Pacifico&family=Rubik+80s+Fade&family=Rubik+Wet+Paint&family=Zen+Tokyo+Zoo&display=swap" rel="stylesheet">
 </head>
-
 <body>
-
-<div class="container">
-
-<h2>Upload Image</h2>
-
-<input type="file" id="fileInput">
-
-<button onclick="uploadImage()">Upload</button>
-
-<br><br>
-
-<a href="gallery.html">
-<button>Open Gallery</button>
-</a>
-
-<h3>Recent Uploads</h3>
-
-<div class="gallery" id="gallery"></div>
-
-</div>
-
-<script src="script.js"></script>
-
+    <div class="container">
+        <h2>Upload Image</h2>
+        <h3 id="welcome" class="name"></h3>
+        <input type="file" id="fileInput" accept="image/*">
+        <button onclick="uploadImage()">Upload</button>
+        <br><br>
+        <a href="gallery.html"><button>Open Gallery</button></a>
+        <h3>Recent Uploads</h3>
+        <div class="gallery" id="gallery"></div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>

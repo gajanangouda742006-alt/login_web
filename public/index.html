@@ -1,36 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>User Registration</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Cinzel:wght@400..900&family=Courgette&family=Londrina+Shadow&family=Momo+Trust+Display&family=Pacifico&family=Rubik+80s+Fade&family=Rubik+Wet+Paint&family=Zen+Tokyo+Zoo&display=swap" rel="stylesheet">
 </head>
-
 <body>
-
-<div class="container">
-
-<h2>Create Account</h2>
-
-<input type="text" id="name" placeholder="Full Name">
-
-<input type="text" id="phone" placeholder="Phone Number">
-
-<input type="email" id="email" placeholder="Email">
-
-<select id="gender">
-<option>Select Gender</option>
-<option>Male</option>
-<option>Female</option>
-<option>Other</option>
-</select>
-
-<input type="password" id="password" placeholder="Password">
-
-<button onclick="register()">Register</button>
-
-</div>
-
-<script src="script.js"></script>
-
+    <div class="container">
+        <h2>Create Account</h2>
+        <input type="text" id="name" placeholder="Full Name" required>
+        <input type="text" id="phone" placeholder="Phone Number" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <select id="gender" required>
+            <option value="" disabled selected>Select Gender</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+        </select>
+        <div class="password-box">
+            <input type="password" id="password" placeholder="Password" required>
+            <span class="eye-icon" onclick="togglePassword()">👁️</span>
+        </div>
+        <button onclick="register()">Register</button>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
